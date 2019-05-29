@@ -107,7 +107,7 @@ namespace FindFiles
         public static void ProcessDirectory(string targetDirectory, string imageName)
 
         {
-            var fileEntries = Directory.GetFiles(targetDirectory, imageName);
+            var fileEntries = Directory.EnumerateFiles(targetDirectory, imageName);
             //string[] fileEntries = Directory.GetFiles(targetDirectory, imageName);
 
 
@@ -158,7 +158,7 @@ namespace FindFiles
 
             }
 
-            var subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            var subdirectoryEntries = Directory.EnumerateDirectories(targetDirectory);
             //string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
 
             foreach (string subdirectory in subdirectoryEntries)
@@ -191,7 +191,7 @@ namespace FindFiles
 
             }
 
-            var subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            var subdirectoryEntries = Directory.EnumerateDirectories(targetDirectory);
             //string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
 
             foreach (string subdirectory in subdirectoryEntries)
