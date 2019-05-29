@@ -4,12 +4,14 @@ using NPOI.SS.UserModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace FindFiles
 {
     public class Program
     {
         public static List<string> fileList = new List<string>();
+        public static string logFile = @"D:\ExcelFile\Log.txt";
 
         private static void Main(string[] args)
         {
@@ -17,9 +19,21 @@ namespace FindFiles
             string directory = @"D:\SajiloImage";
 
 
-            if(!File.Exists(excelFile))
+            using (StreamWriter file = new StreamWriter(logFile, true))
+            {
+                file.WriteLine("###################################");
+
+                file.WriteLine("Start Of Program {0}", DateTime.Now);
+
+            }
+
+            if (!File.Exists(excelFile))
             {
                 Console.WriteLine("Excel File Not Found");
+                using (StreamWriter file = new StreamWriter(logFile, true))
+                {
+                    file.WriteLine("Excel File Not Found");
+                }
                 Console.ReadLine();
                 return;
             }
@@ -66,11 +80,19 @@ namespace FindFiles
                     {
 
                         Console.WriteLine("Image name '{0}' was not found", row.Imagename);
+                        using (StreamWriter file = new StreamWriter(logFile, true))
+                        {
+                            file.WriteLine("Image name '{0}' was not found", row.Imagename);
+                        }
                     }
                 }
                 else
                 {
                     Console.WriteLine("{0} is not a valid directory", directory);
+                    using (StreamWriter file = new StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("{0} is not a valid directory", directory);
+                    }
                 }
 
             }
@@ -99,22 +121,36 @@ namespace FindFiles
                     string destinationFileName = Path.Combine(destination, imageName);
 
                     Console.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
-
-                    if(!File.Exists(destinationFileName))
+                    using (StreamWriter file = new StreamWriter(logFile, true))
                     {
+                        file.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
+                    }
+
+                    if (!File.Exists(destinationFileName))
+                    {
+                        //Task.Run(() =>
+                        //{
+                        //    File.Copy(fileName, destinationFileName);
+
+                        //});
                         File.Copy(fileName, destinationFileName);
                         Console.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
-
+                        using (StreamWriter file = new StreamWriter(logFile, true))
+                        {
+                            file.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
+                        }
 
                     }
                     else
                     {
                         Console.WriteLine("Filename '{0}' Already Exists in destination",fileName);
+                        using (StreamWriter file = new StreamWriter(logFile, true))
+                        {
+                            file.WriteLine("Filename '{0}' Already Exists in destination",fileName);
+                        }
                     }
 
                 }
-
-                //ProcessFile(fileName);
 
             }
 
@@ -125,23 +161,11 @@ namespace FindFiles
             }
         }
 
-        public static void ProcessFile(string path)
-        {
-            //string destination = @"D:\ExcelFile\Destination";
-
-            ////Console.WriteLine("Processed file '{0}'.", path);
-
-            //if(File.Exists(path))
-            //{
-            //    Console.WriteLine("Moved File '{0}' to '{1}", path, destination);
-
-            //}
-
-        }
 
 
         public static List<string> FindAllFiles(string targetDirectory)
         {
+            //, "*eval*" SearchPattern
 
             string[] fileEntries = Directory.GetFiles(targetDirectory);
             foreach (string fileName in fileEntries)
@@ -149,6 +173,11 @@ namespace FindFiles
                 if(fileEntries !=null)
                 {
                     Console.WriteLine("Found file '{0}'.", fileName);
+                    using( StreamWriter file = new StreamWriter(logFile, true))
+                    {
+
+                        file.WriteLine("Found file '{0}'.", fileName);
+                    }
 
                     fileList.Add(fileName);
                 }
@@ -169,7 +198,6 @@ namespace FindFiles
             [Column("Imagename")]
             public string Imagename { get; set; }
 
-            //[Column(3)] By Column
         }
     }
 }
