@@ -3,8 +3,8 @@ using Npoi.Mapper.Attributes;
 using NPOI.SS.UserModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace FindFiles
 {
@@ -15,6 +15,7 @@ namespace FindFiles
 
         private static void Main(string[] args)
         {
+            Stopwatch watch = Stopwatch.StartNew();
             string excelFile = @"D:\ExcelFile\ExcelImage.xlsx";
             string directory = @"D:\SajiloImage";
 
@@ -96,7 +97,8 @@ namespace FindFiles
                 }
 
             }
-
+            Console.WriteLine(watch.Elapsed);
+            watch.Stop();
             Console.ReadLine();
         }
 
@@ -105,7 +107,9 @@ namespace FindFiles
         public static void ProcessDirectory(string targetDirectory, string imageName)
 
         {
-            string[] fileEntries = Directory.GetFiles(targetDirectory, imageName);
+            var fileEntries = Directory.GetFiles(targetDirectory, imageName);
+            //string[] fileEntries = Directory.GetFiles(targetDirectory, imageName);
+
 
             foreach (string fileName in fileEntries)
             {
@@ -154,7 +158,9 @@ namespace FindFiles
 
             }
 
-            string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            var subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            //string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+
             foreach (string subdirectory in subdirectoryEntries)
             {
                 ProcessDirectory(subdirectory, imageName);
@@ -166,8 +172,9 @@ namespace FindFiles
         public static List<string> FindAllFiles(string targetDirectory)
         {
             //, "*eval*" SearchPattern
+            var fileEntries = Directory.EnumerateFiles(targetDirectory);
+            //string[] fileEntries = Directory.GetFiles(targetDirectory);
 
-            string[] fileEntries = Directory.GetFiles(targetDirectory);
             foreach (string fileName in fileEntries)
             {
                 if(fileEntries !=null)
@@ -184,7 +191,9 @@ namespace FindFiles
 
             }
 
-            string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            var subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            //string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+
             foreach (string subdirectory in subdirectoryEntries)
             {
                 FindAllFiles(subdirectory);
