@@ -9,10 +9,26 @@ namespace FindFiles
 {
     public class Program
     {
+        public static List<string> fileList = new List<string>();
+
         private static void Main(string[] args)
         {
             string excelFile = @"D:\ExcelFile\ExcelImage.xlsx";
             string directory = @"D:\SajiloImage";
+
+
+            if(!File.Exists(excelFile))
+            {
+                Console.WriteLine("Excel File Not Found");
+                Console.ReadLine();
+                return;
+            }
+
+
+            if(Directory.Exists(directory))
+            {
+                FindAllFiles(directory);
+            }
 
 
             IWorkbook workbook;
@@ -27,12 +43,30 @@ namespace FindFiles
 
             foreach (var item in items)
             {
+
                 var row = item.Value;
 
-                if(Directory.Exists(directory))
+                if (Directory.Exists(directory))
                 {
-                    ProcessDirectory(directory, row.Imagename);
 
+                    List<string> imageNames = new List<string>();
+
+                    foreach (var file in fileList)
+                    {
+
+                        if (Path.GetFileName(file) == row.Imagename)
+                        {
+                            ProcessDirectory(directory, row.Imagename);
+                            imageNames.Add(Path.GetFileName(file));
+
+                        }
+                    }
+
+                    if(!imageNames.Contains(row.Imagename))
+                    {
+
+                        Console.WriteLine("Image name '{0}' was not found", row.Imagename);
+                    }
                 }
                 else
                 {
@@ -45,6 +79,7 @@ namespace FindFiles
         }
 
 
+
         public static void ProcessDirectory(string targetDirectory, string imageName)
 
         {
@@ -53,19 +88,34 @@ namespace FindFiles
             foreach (string fileName in fileEntries)
             {
 
-                if(fileEntries != null)
+                if (fileEntries != null)
                 {
                     string destination = @"D:\ExcelFile\Destination";
 
-                    if(!Directory.Exists(destination))
+                    if (!Directory.Exists(destination))
                     {
                         Directory.CreateDirectory(destination);
                     }
                     string destinationFileName = Path.Combine(destination, imageName);
-                    File.Move(fileName, destinationFileName);
+
+                    Console.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
+
+                    if(!File.Exists(destinationFileName))
+                    {
+                        File.Copy(fileName, destinationFileName);
+                        Console.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
+
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Filename '{0}' Already Exists in destination",fileName);
+                    }
 
                 }
-                ProcessFile(fileName);
+
+                //ProcessFile(fileName);
+
             }
 
             string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
@@ -75,13 +125,45 @@ namespace FindFiles
             }
         }
 
-        public static void  ProcessFile(string path)
+        public static void ProcessFile(string path)
         {
+            //string destination = @"D:\ExcelFile\Destination";
 
-            Console.WriteLine("Processed file '{0}'.", path);
+            ////Console.WriteLine("Processed file '{0}'.", path);
+
+            //if(File.Exists(path))
+            //{
+            //    Console.WriteLine("Moved File '{0}' to '{1}", path, destination);
+
+            //}
 
         }
 
+
+        public static List<string> FindAllFiles(string targetDirectory)
+        {
+
+            string[] fileEntries = Directory.GetFiles(targetDirectory);
+            foreach (string fileName in fileEntries)
+            {
+                if(fileEntries !=null)
+                {
+                    Console.WriteLine("Found file '{0}'.", fileName);
+
+                    fileList.Add(fileName);
+                }
+
+            }
+
+            string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+            foreach (string subdirectory in subdirectoryEntries)
+            {
+                FindAllFiles(subdirectory);
+
+            }
+
+            return fileList;
+        }
         private class ExcelFormat
         {
             [Column("Imagename")]

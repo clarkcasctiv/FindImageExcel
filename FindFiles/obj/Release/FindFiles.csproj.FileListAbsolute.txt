@@ -1,0 +1,14 @@
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\FindFiles.exe.config
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\FindFiles.exe
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\FindFiles.pdb
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\NPOI.OOXML.dll
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\NPOI.OpenXml4Net.dll
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\NPOI.OpenXmlFormats.dll
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\NPOI.dll
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\Npoi.Mapper.dll
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.csprojAssemblyReference.cache
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.csproj.CoreCompileInputs.cache
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.csproj.CopyComplete
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.exe
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.pdb

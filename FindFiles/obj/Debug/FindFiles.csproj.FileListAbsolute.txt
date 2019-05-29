@@ -7,8 +7,8 @@ C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Debug\NPOI.OpenXmlFormat
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Debug\NPOI.dll
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Debug\Npoi.Mapper.dll
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.csprojAssemblyReference.cache
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.csproj.CoreCompileInputs.cache
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.csproj.CopyComplete
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.exe
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.pdb
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.csprojAssemblyReference.cache
