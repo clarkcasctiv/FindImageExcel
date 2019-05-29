@@ -20,21 +20,21 @@ namespace FindFiles
             string directory = @"D:\SajiloImage";
 
 
-            using (StreamWriter file = new StreamWriter(logFile, true))
-            {
-                file.WriteLine("###################################");
+            //using (StreamWriter file = new StreamWriter(logFile, true))
+            //{
+            //    file.WriteLine("###################################");
 
-                file.WriteLine("Start Of Program {0}", DateTime.Now);
+            //    file.WriteLine("Start Of Program {0}", DateTime.Now);
 
-            }
+            //}
 
             if (!File.Exists(excelFile))
             {
-                Console.WriteLine("Excel File Not Found");
-                using (StreamWriter file = new StreamWriter(logFile, true))
-                {
-                    file.WriteLine("Excel File Not Found");
-                }
+                //Console.WriteLine("Excel File Not Found");
+                //using (StreamWriter file = new StreamWriter(logFile, true))
+                //{
+                //    file.WriteLine("Excel File Not Found");
+                //}
                 Console.ReadLine();
                 return;
             }
@@ -80,20 +80,20 @@ namespace FindFiles
                     if(!imageNames.Contains(row.Imagename))
                     {
 
-                        Console.WriteLine("Image name '{0}' was not found", row.Imagename);
-                        using (StreamWriter file = new StreamWriter(logFile, true))
-                        {
-                            file.WriteLine("Image name '{0}' was not found", row.Imagename);
-                        }
+                        //Console.WriteLine("Image name '{0}' was not found", row.Imagename);
+                        //using (StreamWriter file = new StreamWriter(logFile, true))
+                        //{
+                        //    file.WriteLine("Image name '{0}' was not found", row.Imagename);
+                        //}
                     }
                 }
                 else
                 {
-                    Console.WriteLine("{0} is not a valid directory", directory);
-                    using (StreamWriter file = new StreamWriter(logFile, true))
-                    {
-                        file.WriteLine("{0} is not a valid directory", directory);
-                    }
+                    //Console.WriteLine("{0} is not a valid directory", directory);
+                    //using (StreamWriter file = new StreamWriter(logFile, true))
+                    //{
+                    //    file.WriteLine("{0} is not a valid directory", directory);
+                    //}
                 }
 
             }
@@ -124,11 +124,11 @@ namespace FindFiles
                     }
                     string destinationFileName = Path.Combine(destination, imageName);
 
-                    Console.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
-                    using (StreamWriter file = new StreamWriter(logFile, true))
-                    {
-                        file.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
-                    }
+                    //Console.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
+                    //using (StreamWriter file = new StreamWriter(logFile, true))
+                    //{
+                    //    file.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
+                    //}
 
                     if (!File.Exists(destinationFileName))
                     {
@@ -138,20 +138,20 @@ namespace FindFiles
 
                         //});
                         File.Copy(fileName, destinationFileName);
-                        Console.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
-                        using (StreamWriter file = new StreamWriter(logFile, true))
-                        {
-                            file.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
-                        }
+                        //Console.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
+                        //using (StreamWriter file = new StreamWriter(logFile, true))
+                        //{
+                        //    file.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
+                        //}
 
                     }
                     else
                     {
-                        Console.WriteLine("Filename '{0}' Already Exists in destination",fileName);
-                        using (StreamWriter file = new StreamWriter(logFile, true))
-                        {
-                            file.WriteLine("Filename '{0}' Already Exists in destination",fileName);
-                        }
+                        //Console.WriteLine("Filename '{0}' Already Exists in destination",fileName);
+                        //using (StreamWriter file = new StreamWriter(logFile, true))
+                        //{
+                        //    file.WriteLine("Filename '{0}' Already Exists in destination",fileName);
+                        //}
                     }
 
                 }
@@ -179,12 +179,12 @@ namespace FindFiles
             {
                 if(fileEntries !=null)
                 {
-                    Console.WriteLine("Found file '{0}'.", fileName);
-                    using( StreamWriter file = new StreamWriter(logFile, true))
-                    {
+                    //Console.WriteLine("Found file '{0}'.", fileName);
+                    //using( StreamWriter file = new StreamWriter(logFile, true))
+                    //{
 
-                        file.WriteLine("Found file '{0}'.", fileName);
-                    }
+                    //    file.WriteLine("Found file '{0}'.", fileName);
+                    //}
 
                     fileList.Add(fileName);
                 }
