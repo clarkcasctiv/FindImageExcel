@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
+      "EPPlus/4.5.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Drawing",
+          "System.Security",
+          "System.Xml",
+          "System.configuration"
+        ],
+        "compile": {
+          "lib/net40/EPPlus.dll": {}
+        },
+        "runtime": {
+          "lib/net40/EPPlus.dll": {}
+        }
+      },
       "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -48,6 +67,25 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win": {
+      "EPPlus/4.5.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Drawing",
+          "System.Security",
+          "System.Xml",
+          "System.configuration"
+        ],
+        "compile": {
+          "lib/net40/EPPlus.dll": {}
+        },
+        "runtime": {
+          "lib/net40/EPPlus.dll": {}
+        }
+      },
       "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -94,6 +132,25 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x64": {
+      "EPPlus/4.5.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Drawing",
+          "System.Security",
+          "System.Xml",
+          "System.configuration"
+        ],
+        "compile": {
+          "lib/net40/EPPlus.dll": {}
+        },
+        "runtime": {
+          "lib/net40/EPPlus.dll": {}
+        }
+      },
       "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -140,6 +197,25 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x86": {
+      "EPPlus/4.5.3.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Drawing",
+          "System.Security",
+          "System.Xml",
+          "System.configuration"
+        ],
+        "compile": {
+          "lib/net40/EPPlus.dll": {}
+        },
+        "runtime": {
+          "lib/net40/EPPlus.dll": {}
+        }
+      },
       "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -187,6 +263,24 @@
     }
   },
   "libraries": {
+    "EPPlus/4.5.3.1": {
+      "sha512": "2BFgconr3ZxC95P2KkEzcagdlGTBC14BD/39oy7GDHuJMqrJl3nvrHEegNTdIvlOG46T+AaI416zJQ5qBIzi8g==",
+      "type": "package",
+      "path": "epplus/4.5.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "epplus.4.5.3.1.nupkg.sha512",
+        "epplus.nuspec",
+        "lib/net35/EPPlus.dll",
+        "lib/net35/EPPlus.xml",
+        "lib/net40/EPPlus.dll",
+        "lib/net40/EPPlus.xml",
+        "lib/netstandard2.0/EPPlus.dll",
+        "lib/netstandard2.0/EPPlus.xml",
+        "readme.txt"
+      ]
+    },
     "NPOI/2.4.1": {
       "sha512": "85790/CY9z4DCU1KLpcdLSqaqaqmQOenTqXJfcsYK8LIKNAAoTgjT5LYLbORgdwAd63sbaJiCfB1SIn/dAXrJw==",
       "type": "package",
@@ -252,6 +346,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
+      "EPPlus >= 4.5.3.1",
       "Npoi.Mapper >= 3.3.0"
     ]
   },
@@ -288,6 +383,10 @@
     "frameworks": {
       "net472": {
         "dependencies": {
+          "EPPlus": {
+            "target": "Package",
+            "version": "[4.5.3.1, )"
+          },
           "Npoi.Mapper": {
             "target": "Package",
             "version": "[3.3.0, )"

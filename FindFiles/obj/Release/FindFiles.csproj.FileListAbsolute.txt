@@ -12,3 +12,4 @@ C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.csproj
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.csproj.CopyComplete
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.exe
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Release\FindFiles.pdb
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Release\EPPlus.dll
