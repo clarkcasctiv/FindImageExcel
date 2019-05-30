@@ -12,3 +12,4 @@ C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.csproj.C
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.exe
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.pdb
 C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\obj\Debug\FindFiles.csprojAssemblyReference.cache
+C:\Work\SajiloMobileMoney\Trunk\FindFiles\FindFiles\bin\Debug\EPPlus.dll

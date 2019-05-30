@@ -144,29 +144,40 @@ namespace FindFiles
             {
                 if (fileEntries != null)
                 {
-                    string destination = @"D:\SearchImage\Destination";
+                    string destination = @"D:\SearchImage\Destination\";
 
                     if (!Directory.Exists(destination))
                     {
                         Directory.CreateDirectory(destination);
                     }
+
                     string destinationFileName = Path.Combine(destination, imageName);
 
-                    Console.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
+                    string name = imageName.Substring(imageName.LastIndexOf('_') + 1, 10);
+                    string[] path = name.Split('-');
+                    var directory = destination + path[0] + @"\" + path[1] + @"\" + path[2] + @"\";
+                    var imgFullPath = destination + path[0] + @"\" + path[1] + @"\" + path[2] + @"\" + imageName;
+
+                    if (!Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+
+                    Console.WriteLine("Moving File '{0}' to '{1}'", fileName, directory);
                     //using (StreamWriter file = new StreamWriter(logFile, true))
                     //{
                     //    file.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
                     //}
 
-                    if (!File.Exists(destinationFileName))
+                    if (!File.Exists(imgFullPath))
                     {
                         //Task.Run(() =>
                         //{
                         //    File.Copy(fileName, destinationFileName);
 
                         //});
-                        File.Copy(fileName, destinationFileName);
-                        Console.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
+                        File.Copy(fileName, imgFullPath);
+                        Console.WriteLine("Moved File '{0}' to '{1}", fileName, directory);
                         //using (StreamWriter file = new StreamWriter(logFile, true))
                         //{
                         //    file.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
