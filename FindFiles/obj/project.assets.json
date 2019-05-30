@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.7.2": {
+    ".NETFramework,Version=v4.5": {
       "EPPlus/4.5.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -66,7 +66,7 @@
         }
       }
     },
-    ".NETFramework,Version=v4.7.2/win": {
+    ".NETFramework,Version=v4.5/win": {
       "EPPlus/4.5.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -131,7 +131,7 @@
         }
       }
     },
-    ".NETFramework,Version=v4.7.2/win-x64": {
+    ".NETFramework,Version=v4.5/win-x64": {
       "EPPlus/4.5.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -196,7 +196,7 @@
         }
       }
     },
-    ".NETFramework,Version=v4.7.2/win-x86": {
+    ".NETFramework,Version=v4.5/win-x86": {
       "EPPlus/4.5.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -345,7 +345,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.7.2": [
+    ".NETFramework,Version=v4.5": [
       "EPPlus >= 4.5.3.1",
       "Npoi.Mapper >= 3.3.0"
     ]
@@ -368,20 +368,20 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net472"
+        "net45"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net472": {
+        "net45": {
           "projectReferences": {}
         }
       }
     },
     "frameworks": {
-      "net472": {
+      "net45": {
         "dependencies": {
           "EPPlus": {
             "target": "Package",

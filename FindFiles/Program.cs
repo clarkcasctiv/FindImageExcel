@@ -17,24 +17,24 @@ namespace FindFiles
         private static void Main(string[] args)
         {
             Stopwatch watch = Stopwatch.StartNew();
-            string directory = @"D:\SearchImage";
+            string directory = @"D:\SearchImage\Source";
             string excelFile = @"D:\SearchImage\ExcelImage.xlsx";
 
-            //using (StreamWriter file = new StreamWriter(logFile, true))
-            //{
-            //    file.WriteLine("###################################");
+            using (StreamWriter file = new StreamWriter(logFile, true))
+            {
+                file.WriteLine("###################################");
 
-            //    file.WriteLine("Start Of Program {0}", DateTime.Now);
+                file.WriteLine("Start Of Program {0}", DateTime.Now);
 
-            //}
+            }
 
             if (!File.Exists(excelFile))
             {
                 Console.WriteLine("Excel File Not Found");
-                //using (StreamWriter file = new StreamWriter(logFile, true))
-                //{
-                //    file.WriteLine("Excel File Not Found");
-                //}
+                using (StreamWriter file = new StreamWriter(logFile, true))
+                {
+                    file.WriteLine("Excel File Not Found");
+                }
                 Console.ReadLine();
                 return;
             }
@@ -45,7 +45,7 @@ namespace FindFiles
                 FindAllFiles(directory);
             }
 
-            //ListAllFiles();
+            ListAllFiles();
 
 
             IWorkbook workbook;
@@ -77,19 +77,19 @@ namespace FindFiles
                     if (!imageNames.Contains(row.Imagename))
                     {
                         Console.WriteLine("Image name '{0}' was not found", row.Imagename);
-                        //using (StreamWriter file = new StreamWriter(logFile, true))
-                        //{
-                        //    file.WriteLine("Image name '{0}' was not found", row.Imagename);
-                        //}
+                        using (StreamWriter file = new StreamWriter(logFile, true))
+                        {
+                            file.WriteLine("Image name '{0}' was not found", row.Imagename);
+                        }
                     }
                 }
                 else
                 {
                     Console.WriteLine("{0} is not a valid directory", directory);
-                    //using (StreamWriter file = new StreamWriter(logFile, true))
-                    //{
-                    //    file.WriteLine("{0} is not a valid directory", directory);
-                    //}
+                    using (StreamWriter file = new StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("{0} is not a valid directory", directory);
+                    }
                 }
             }
             Console.WriteLine(watch.Elapsed);
@@ -103,14 +103,14 @@ namespace FindFiles
 
             IWorkbook workbook;
 
-            using(FileStream file = new FileStream(listExcel, FileMode.Open, FileAccess.Read))
+            using (FileStream file = new FileStream(listExcel, FileMode.Open, FileAccess.Read))
             {
                 workbook = WorkbookFactory.Create(file);
             }
 
             FileInfo file1 = new FileInfo(listExcel);
 
-            using(ExcelPackage excelPackage = new ExcelPackage(file1))
+            using (ExcelPackage excelPackage = new ExcelPackage(file1))
             {
                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[1];
 
@@ -119,7 +119,7 @@ namespace FindFiles
                 {
                     //worksheet.Cells[1, 1].Value = "Encoded String";
 
-                    worksheet.Cells[i, 1].Value = Path.GetFileName(fileList[i-1]);
+                    worksheet.Cells[i, 1].Value = Path.GetFileName(fileList[i - 1]);
 
                 }
 
@@ -163,11 +163,13 @@ namespace FindFiles
                         Directory.CreateDirectory(directory);
                     }
 
+                    //Console.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
                     Console.WriteLine("Moving File '{0}' to '{1}'", fileName, directory);
-                    //using (StreamWriter file = new StreamWriter(logFile, true))
-                    //{
-                    //    file.WriteLine("Moving File '{0}' to '{1}'", fileName, destination);
-                    //}
+
+                    using (StreamWriter file = new StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("Moving File '{0}' to '{1}'", fileName, directory);
+                    }
 
                     if (!File.Exists(imgFullPath))
                     {
@@ -178,18 +180,18 @@ namespace FindFiles
                         //});
                         File.Copy(fileName, imgFullPath);
                         Console.WriteLine("Moved File '{0}' to '{1}", fileName, directory);
-                        //using (StreamWriter file = new StreamWriter(logFile, true))
-                        //{
-                        //    file.WriteLine("Moved File '{0}' to '{1}", fileName, destination);
-                        //}
+                        using (StreamWriter file = new StreamWriter(logFile, true))
+                        {
+                            file.WriteLine("Moved File '{0}' to '{1}", fileName, directory);
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Filename '{0}' Already Exists in destination", fileName);
-                        //using (StreamWriter file = new StreamWriter(logFile, true))
-                        //{
-                        //    file.WriteLine("Filename '{0}' Already Exists in destination",fileName);
-                        //}
+                        using (StreamWriter file = new StreamWriter(logFile, true))
+                        {
+                            file.WriteLine("Filename '{0}' Already Exists in destination", fileName);
+                        }
                     }
                 }
             }
@@ -236,8 +238,11 @@ namespace FindFiles
 
         private class ExcelFormat
         {
+
             [Column("Imagename")]
             public string Imagename { get; set; }
+
+
         }
     }
 }
